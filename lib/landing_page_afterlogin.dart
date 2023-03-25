@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
             DrawerHeader(
               decoration: BoxDecoration(
                   // image: Image(),
-
                   ),
               child: Text('  '),
             ),
@@ -276,7 +275,7 @@ class Most extends StatelessWidget {
           onPressed: () {},
           child: Container(
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("images/firstpage.jpg")),
+              // image: DecorationImage(image: AssetImage("Images/firstpage.jpg")),
               color: kThemeColor,
               borderRadius: BorderRadius.circular(20),
             ),

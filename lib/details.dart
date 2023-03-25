@@ -52,11 +52,12 @@ class _DetailsPageState extends State<DetailsPage> {
         child: SafeArea(
           child: Column(
             children: [
-              Expanded(
-                  child: Image(
-                width: MediaQuery.of(context).size.width * 0.9,
-                image: AssetImage("image/firstpage.jpg"),
-              )),
+              // Expanded(
+              //   child: Image(
+              //     width: MediaQuery.of(context).size.width * 0.9,
+              //     // image: AssetImage("image/firstpage.jpg"),
+              //   ),
+              // ),
               TextField(
                 controller: eName,
                 decoration: InputDecoration(
