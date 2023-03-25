@@ -53,10 +53,12 @@ class _DetailsPageState extends State<DetailsPage> {
           child: Column(
             children: [
               Expanded(
-                  child: Image(
-                width: MediaQuery.of(context).size.width * 0.9,
-                image: AssetImage("image/firstpage.jpg"),
-              )),
+                child: Image(
+                  //width: MediaQuery.of(context).size.width * 0.9,
+                  height:MediaQuery.of(context).size.height* 1 ,
+                  image: AssetImage("image/firstpage.jpg"),
+                ),
+              ),
               TextField(
                 controller: eName,
                 decoration: InputDecoration(

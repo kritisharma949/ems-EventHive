@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 const kFieldSizedBox = SizedBox(
   height: 5,
 );
@@ -143,6 +144,7 @@ class ReusableWidget extends StatelessWidget {
   final Widget? cardChild;
   final Function()? onPress;
 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -163,27 +165,74 @@ class ReusableWidget extends StatelessWidget {
 }
 
 
+//
+// class GuestField extends StatelessWidget {
+//   const GuestField({super.key, required this.hText, this.prefixIcon});
+//
+//   final String? hText;
+//   final Widget? prefixIcon;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: EdgeInsets.symmetric(horizontal: 1.0),
+//       child: Padding(
+//         padding: EdgeInsets.all(1.0),
+//         child: TextField(
+//           decoration: InputDecoration(
+//             hintText: hText,
+//             prefixIcon: prefixIcon,
+//             border: OutlineInputBorder(),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-class GuestField extends StatelessWidget {
-  const GuestField({super.key, required this.hText, this.prefixIcon});
 
-  final String? hText;
-  final Widget? prefixIcon;
+// this widget is for landing page button of Events
+class EventHomePage extends StatelessWidget {
+  const EventHomePage(
+      {super.key, required this.labeltext, required this.image, required this.onPress});
+
+  final String labeltext;
+  final Image? image;
+  final Function()? onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 1.0),
+    return Expanded(
       child: Padding(
-        padding: EdgeInsets.all(1.0),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: hText,
-            prefixIcon: prefixIcon,
-            border: OutlineInputBorder(),
-          ),
+        padding: EdgeInsets.all(15.0),
+        child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+            ),
+            onPressed: onPress,
+            child: Column(
+        children: [
+        Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: image,
+      ),
+      Text(
+        labeltext,
+        style: TextStyle(
+          fontFamily: 'SourceSansPro',
+          fontSize: 12.0,
+          color: Colors.black,
         ),
       ),
+      ],
+    ),)
+    ,
+    )
+    ,
     );
   }
 }
