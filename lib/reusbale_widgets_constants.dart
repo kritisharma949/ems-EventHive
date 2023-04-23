@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 const kFieldSizedBox = SizedBox(
   height: 5,
 );
@@ -16,9 +15,12 @@ const kThemeColor = Colors.deepPurple;
 const kButtonTextColor = Colors.white;
 const kNotSelected = Colors.white;
 
+// ignore: must_be_immutable
 class EntryField extends StatelessWidget {
-  const EntryField({super.key, required this.hText, this.prefixIcon});
+  EntryField(
+      {super.key, required this.hText, this.prefixIcon, this.controller});
 
+  TextEditingController? controller = TextEditingController();
   final String? hText;
   final Widget? prefixIcon;
 
@@ -45,6 +47,7 @@ class EntryField extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: TextField(
+            controller: controller,
             decoration: InputDecoration(
               hintText: hText,
               prefixIcon: prefixIcon,
@@ -135,7 +138,6 @@ class CategoriesButton extends StatelessWidget {
   }
 }
 
-
 class ReusableWidget extends StatelessWidget {
   const ReusableWidget(
       {super.key, required this.colour, this.cardChild, this.onPress});
@@ -143,7 +145,6 @@ class ReusableWidget extends StatelessWidget {
   final Color? colour;
   final Widget? cardChild;
   final Function()? onPress;
-
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +164,6 @@ class ReusableWidget extends StatelessWidget {
     );
   }
 }
-
 
 //
 // class GuestField extends StatelessWidget {
@@ -190,11 +190,13 @@ class ReusableWidget extends StatelessWidget {
 //   }
 // }
 
-
 // this widget is for landing page button of Events
 class EventHomePage extends StatelessWidget {
   const EventHomePage(
-      {super.key, required this.labeltext, required this.image, required this.onPress});
+      {super.key,
+      required this.labeltext,
+      required this.image,
+      required this.onPress});
 
   final String labeltext;
   final Image? image;
@@ -206,33 +208,32 @@ class EventHomePage extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(15.0),
         child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.white,
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
-              ),
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.white,
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
             ),
-            onPressed: onPress,
-            child: Column(
-        children: [
-        Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: image,
-      ),
-      Text(
-        labeltext,
-        style: TextStyle(
-          fontFamily: 'SourceSansPro',
-          fontSize: 12.0,
-          color: Colors.black,
+          ),
+          onPressed: onPress,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: image,
+              ),
+              Text(
+                labeltext,
+                style: TextStyle(
+                  fontFamily: 'SourceSansPro',
+                  fontSize: 12.0,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      ],
-    ),)
-    ,
-    )
-    ,
     );
   }
 }
