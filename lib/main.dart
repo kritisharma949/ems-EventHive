@@ -17,8 +17,10 @@ void main() {
       ),
       // home: MyApp(),
       //  home: MyHomePage(),
-      // home: HomePage(),
-      home: PopularNow(),
+      home: HomePage(),
+      // home: PopularDetails(),
+      // home: PopularNow(),
+
 
     ),
 

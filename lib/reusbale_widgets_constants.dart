@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 const kFieldSizedBox = SizedBox(
   height: 5,
@@ -237,3 +239,72 @@ class EventHomePage extends StatelessWidget {
     );
   }
 }
+
+
+
+class PopularNowField extends StatelessWidget {
+  PopularNowField(
+      {super.key,
+      required this.hText,
+      this.prefixIcon,
+      this.controller,
+      });
+
+  TextEditingController? controller = TextEditingController();
+  final String? hText;
+  final Widget? prefixIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey.shade100,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          border: Border.all(
+            color: Colors.white,
+          ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: hText,
+              prefixIcon: prefixIcon,
+              border: InputBorder.none,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

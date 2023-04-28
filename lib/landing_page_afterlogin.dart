@@ -1,25 +1,24 @@
+import 'package:ems/Login_UI/loginpage.dart';
 import 'package:ems/details.dart';
 import 'package:flutter/material.dart';
 import 'package:ems/newpage.dart';
 import 'package:ems/reusbale_widgets_constants.dart';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:ems/PopularNow.dart';
 
-// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
-
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     // double height = MediaQuery.of(context).size.height;
-    // double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome User'),
@@ -73,6 +72,21 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.arrow_back,
+                color: kThemeColor,
+              ),
+              title: Text('Back'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
                   ),
                 );
               },
@@ -258,19 +272,19 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              // Expanded(
-              //   child: ListView.builder(
-              //     itemCount: 6,
-              //     scrollDirection: Axis.horizontal,
-              //     itemBuilder: (context, index) => Container(
-              //       height: 1,
-              //       width: width * 0.85,
-              //       margin: EdgeInsets.all(10),
-              //       child: Text('Hi'),
-              //     ),
-              //   ),
-              // ),
-
+              // Text("Popular Now"),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 1,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Container(
+                    height: 1,
+                    width: width * 0.85,
+                    margin: EdgeInsets.all(10),
+                    child: PopularNow(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

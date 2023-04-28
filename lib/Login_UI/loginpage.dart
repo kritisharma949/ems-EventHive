@@ -63,12 +63,14 @@ class LoginPage extends StatelessWidget {
             ButtonText(
               label: 'Forget Password?',
               onPress: () {
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ForgetpPage(),
                   ),
                 );
+
               },
               textColor: Colors.black,
             ),
